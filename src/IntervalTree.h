@@ -66,7 +66,6 @@ private:
     void rotateRight() {
         Node<T> * temp = m_left->m_right;
         Node<T> * _left = m_left;
-        Node<T> * _right = m_right;
 
         Node<T> * copy = new Node<T>(*this);
         *this = std::move(*_left);
@@ -80,18 +79,14 @@ private:
 
     void rotateLeft(){
         Node<T> * temp = m_right->m_left;
-        Node<T> * _left = m_left;
         Node<T> * _right = m_right;
 
-        // how to do this without copying and deleting..
         Node<T> * copy = new Node<T>(*this);
-        *this = std::move(*_right); // call move construtor
-        //*this = *_right; // call copy constructormo
+        *this = std::move(*_right);
         delete _right;
 
         m_left = copy;
         m_left->m_right = temp;
-        //m_left->m_left = _left; 
         m_left->calHeight();
         calHeight();
     }
