@@ -3,6 +3,7 @@
 #include <list>
 #include <algorithm>  
 #include  <utility>
+#include <stdexcept>
 
 namespace IntervalTree {
 
